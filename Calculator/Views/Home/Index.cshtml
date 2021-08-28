@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<center>
+    <div class="calculator">
+        <div class="header"></div>
+        <div class="body">
+            <table class="table">
+                <tr><td>valriable 1</td><td><input type="text" name="val2" class="calNum" /></td><td><input type="button" value="+" onclick="api.Sign(this)" /></td></tr>
+                <tr><td>valriable 2</td><td><input type="text" name="val2" class="calNum" /></td><td><input type="button" value="-" onclick="api.Sign(this)" /></td></tr>
+                <tr><td></td><td><input type="text" name="sign" class="sign" /></td><td><input type="button" value="*" onclick="api.Sign(this)" /></td></tr>
+                <tr><td></td><td><input type="button" value="=" onclick="api.Start()"/></td><td><input type="button" value="/" onclick="api.Sign(this)" /></td></tr>
+                <tr><td></td><td></td><td><input type="button" value="%" onclick="api.Sign(this)" /></td></tr>
+                <tr><td></td><td></td><td><input type="button" value="Sqr" onclick="api.Sign(this)" /></td></tr>
+                <tr><td></td><td></td><td><input type="button" class="btn btn-danger" value="Cancel" onclick="$('.calNum').val('')" /></td></tr>
+            </table>
+        </div>
+    </div>
+</center>
+@section scripts{
+   <script>
+       api = new Api()
+       function Api() {
+           
+           this.Sign = function (sign) {
+               $(".sign").val(sign.value);
+           };
+           this.Start = function () {
+               tmp = document.getElementsByClassName("calNum");
+               if ($(".sign").val().length <= 0) {
+                   $(".sign").css({ "border": "1px solid brown" });
+               } else {
+                   location.replace("/Home/Calculat?val1="+tmp[0].value+"&val2="+tmp[1].value+"&sign=" + $(".sign").val());
+               }
+           };
+       }
+    </script>
+ }
