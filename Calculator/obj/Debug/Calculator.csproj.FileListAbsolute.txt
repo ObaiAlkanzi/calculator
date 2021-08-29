@@ -84,3 +84,5 @@ M:\obai\c#\Calculator\Calculator\bin\Microsoft.AspNet.Identity.Core.xml
 M:\obai\c#\Calculator\Calculator\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 M:\obai\c#\Calculator\Calculator\obj\Debug\Calculator.Migrations.initialMigration.resources
 M:\obai\c#\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+M:\obai\c#\Calculator\Calculator\obj\Debug\Calculator.Migrations.AddResultField.resources
+M:\obai\c#\Calculator\Calculator\obj\Debug\Calculator.Migrations.AddResultField1.resources

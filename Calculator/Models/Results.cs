@@ -11,5 +11,6 @@ namespace Calculator.Models
         public string val1 { get; set; }
         public string val2 { get; set; }
         public string sing{get; set;}
+        public double result { get; set; }
     }
 }

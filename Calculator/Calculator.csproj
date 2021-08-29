@@ -140,6 +140,14 @@
     <Compile Include="Migrations\202108281342052_initialMigration.Designer.cs">
       <DependentUpon>202108281342052_initialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108291146408_AddResultField.cs" />
+    <Compile Include="Migrations\202108291146408_AddResultField.Designer.cs">
+      <DependentUpon>202108291146408_AddResultField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108291255182_AddResultField1.cs" />
+    <Compile Include="Migrations\202108291255182_AddResultField1.Designer.cs">
+      <DependentUpon>202108291255182_AddResultField1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Results.cs" />
@@ -183,11 +191,17 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Calculat.cshtml" />
+    <Content Include="Views\Home\Calculate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202108281342052_initialMigration.resx">
       <DependentUpon>202108281342052_initialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108291146408_AddResultField.resx">
+      <DependentUpon>202108291146408_AddResultField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108291255182_AddResultField1.resx">
+      <DependentUpon>202108291255182_AddResultField1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

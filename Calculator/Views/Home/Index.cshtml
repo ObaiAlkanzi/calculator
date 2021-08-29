@@ -1,39 +1,78 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Calculator";
 }
+<style>
+    .calculator {
+        width: 500px;
+        margin-top: 30px;
+        background: white;
+    }
+    .calculator .header{
+        padding-top:14px;
+    }
+    .calculator .header input {
+        width: 400px;
+        padding:3px;
+        margin-top:4px;
+    }
 
+    .sign {
+        font-weight: 400;
+        font-size: 17px;
+        padding:1px;
+        text-align:center;
+    }
+    .footer{
+        margin-top:10px;
+        padding:6px;
+    }
+    .footer input{
+        width:54px;
+        font-weight:800;
+        font-size:17px;
+    }
+    .footer input[type=submit],.footer input[type=reset]{
+        width:400px;
+        background:#081687;
+        border:0px;
+        margin-top:3px;
+        color:white;
+        padding:5px;
+    }
+    .footer input[type=reset]{
+        background:brown;
+    }
+</style>
 <center>
     <div class="calculator">
-        <div class="header"></div>
-        <div class="body">
-            <table class="table">
-                <tr><td>valriable 1</td><td><input type="text" name="val2" class="calNum" /></td><td><input type="button" value="+" onclick="api.Sign(this)" /></td></tr>
-                <tr><td>valriable 2</td><td><input type="text" name="val2" class="calNum" /></td><td><input type="button" value="-" onclick="api.Sign(this)" /></td></tr>
-                <tr><td></td><td><input type="text" name="sign" class="sign" /></td><td><input type="button" value="*" onclick="api.Sign(this)" /></td></tr>
-                <tr><td></td><td><input type="button" value="=" onclick="api.Start()"/></td><td><input type="button" value="/" onclick="api.Sign(this)" /></td></tr>
-                <tr><td></td><td></td><td><input type="button" value="%" onclick="api.Sign(this)" /></td></tr>
-                <tr><td></td><td></td><td><input type="button" value="Sqr" onclick="api.Sign(this)" /></td></tr>
-                <tr><td></td><td></td><td><input type="button" class="btn btn-danger" value="Cancel" onclick="$('.calNum').val('')" /></td></tr>
-            </table>
-        </div>
+       
+           @using (Html.BeginForm("Calculate","Home"))
+           {
+            <div class="header">
+                <input type="text" name="val1" placeholder="number 1" />
+                <br />
+                <input type="text" name="val2" placeholder="number 2" />
+                <br />
+                <input type="text" name="sing" placeholder="sign" class="sign"/>
+            </div>
+            <div class="footer">
+                <input type="button" value="+" onclick="change(this)" />
+                <input type="button" value="-" onclick="change(this)" />
+                <input type="button" value="*" onclick="change(this)" />
+                <input type="button" value="%" onclick="change(this)" />
+                <input type="button" value="/" onclick="change(this)" />
+                <input type="button" value="Sqr" onclick="change(this)" />
+                <input type="button" value="x*x" onclick="change(this)" />
+                <input type="submit" value="=" />
+                <input type="reset" value="Clr" />
+            </div>
+           }
     </div>
 </center>
 @section scripts{
-   <script>
-       api = new Api()
-       function Api() {
-           
-           this.Sign = function (sign) {
-               $(".sign").val(sign.value);
-           };
-           this.Start = function () {
-               tmp = document.getElementsByClassName("calNum");
-               if ($(".sign").val().length <= 0) {
-                   $(".sign").css({ "border": "1px solid brown" });
-               } else {
-                   location.replace("/Home/Calculat?val1="+tmp[0].value+"&val2="+tmp[1].value+"&sign=" + $(".sign").val());
-               }
-           };
-       }
-    </script>
- }
+<script>
+    function change(element) {
+        $(".sign").val(element.value);
+    }
+    </script>    
+}
